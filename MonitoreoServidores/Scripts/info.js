@@ -27,22 +27,16 @@ function inicializarEncabezado(codigo) {
 };
 
 $(document).ready(function () {
-    $("#VBat").html(0);
-    $("#VBat").html(0);
-    $("#VBat").html(0);
-    var i = 0;
-    var j = 0;
-    var k = 0;
+    document.getElementById("VBat").innerHTML = 0;
+    document.getElementById("ZBat").innerHTML = 0;
+    document.getElementById("ZPAT").innerHTML = 0;
     var maxVBatMB = VBatMB * 1.3;
     var maxZBatMB = ZBatMB * 1.3;
     var maxZPATMB = ZPATMB * 1.3;
-    while (($("#VBat").html() < maxVBatMB) || ($("#ZBat").html() < maxZBatMB) || ($("#ZPAT").html() < maxZPATMB)) {
-        $("#VBat").html(i);
-        $("#ZBat").html(j);
-        $("#ZPAT").html(k);
-        i = i + 1;
-        j = j + 0.1;
-        k = k + 0.01;
+    while ((parseInt(document.getElementById("VBat").innerHTML) < maxVBatMB) && (parseInt(document.getElementById("ZBat").innerHTML) < maxZBatMB) && (parseInt(document.getElementById("ZPAT").innerHTML) < maxZPATMB)) {
+        document.getElementById("VBat").innerHTML = parseInt(parseInt(document.getElementById("VBat").innerHTML) + 1);
+        document.getElementById("ZBat").innerHTML = parseInt(parseInt(document.getElementById("ZBat").innerHTML) + 1);
+        document.getElementById("ZPAT").innerHTML = parseInt(parseInt(document.getElementById("ZPAT").innerHTML) + 1);
     }
 });
 
