@@ -203,10 +203,8 @@ border-color: windowtext;
         document.write((dias[d.getDay()] + ", " + dia + " de " + meses[d.getMonth()] + " del Año " + d.getFullYear() + ", " + hora + ":" + minuto));
     </script>
     <div class='principal' id="main">
-        <div style="position: relative ;margin-left:50px" class="horaActual">
-            <HR size="1" align="left" WIDTH="900" color="#000000">
-            <!--div id="hora" class="horaActual"-->
-            <!--/div-->
+        <div style="position: absolute;" class="horaActual">
+            <HR size="1" align="left" WIDTH="900" color="#000000"/>
             <div id="DatosCaracteristicos">
                 <table id="tableConstantes">
                     <tr>
@@ -375,10 +373,10 @@ border-color: windowtext;
                                 <tr>
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="PPATAl" src="images/NO.gif" width="14">
-                                    </td>
-                                    <script type='text/javascript'>
+                                        <script type='text/javascript'>
                                         //addToMasterList(new DP("NVL","NVL_mbPPATAlarm_" + jsvWSIndex, "PPATAl"), dpMtrList.index++);
-                                    </script>
+                                        </script>
+                                    </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura de aceite</td>
                                     <td width="81" bordercolor="#C7C7C7">
                                         <select>
@@ -392,10 +390,10 @@ border-color: windowtext;
                                 <tr>
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="NPATAl" src="images/NO.gif" width="14">
-                                    </td>
-                                    <script type='text/javascript'>
+                                        <script type='text/javascript'>
                                         //addToMasterList(new DP("NVL","NVL_mbNPATAlarm_" + jsvWSIndex, "NPATAl"), dpMtrList.index++);
-                                    </script>
+                                        </script>
+                                    </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura ambiente</td>
                                     <td width="81" bordercolor="#C7C7C7">
                                         <select>
@@ -409,10 +407,10 @@ border-color: windowtext;
                                 <tr>
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="HZBatAl" src="images/NO.gif" width="14">
-                                    </td>
-                                    <script type='text/javascript'>
+                                        <script type='text/javascript'>
                                         //addToMasterList(new DP("NVL","NVL_mbHZBatAlarm_" + jsvWSIndex, "HZBatAl"), dpMtrList.index++);
-                                    </script>
+                                        </script>
+                                    </td>
                                     <td width="229" bordercolor="#C7C7C7">Temperatura refrigerante</td>
                                     <td width="81" bordercolor="#C7C7C7">
                                         <select>
@@ -512,6 +510,8 @@ border-color: windowtext;
                     </div>
                 </center>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>
