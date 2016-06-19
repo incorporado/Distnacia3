@@ -13,6 +13,7 @@ var stop;
 var maxVBatMB;  
 var maxZBatMB;
 var maxZPATMB;
+var aux;
 
 function inicializarEncabezado(codigo) {
     if (codigo == 1) {
@@ -63,25 +64,50 @@ function loop() {
     stopInterval();
 
     cambiarImagen();
+
+    aux = parseFloat(document.getElementById("VBat").innerHTML);
 }
 
 function cambiarImagen() {
     if (parseFloat(document.getElementById("VBat").innerHTML) > VBatMB) {
         document.getElementById('PPATAl').src = "images/NO.gif";
     }
+    else {
+        document.getElementById('PPATAl').src = "images/SI.gif";
+    }
 
     if (parseFloat(document.getElementById("ZBat").innerHTML) > ZBatMB) {
         document.getElementById('NPATAl').src = "images/NO.gif";
+    }
+    else {
+        document.getElementById('NPATAl').src = "images/SI.gif";
     }
 
     if (parseFloat(document.getElementById("ZPAT").innerHTML) > ZPATMB) {
         document.getElementById('HZBatAl').src = "images/NO.gif";
     }
+    else {
+        document.getElementById('HZBatAl').src = "images/SI.gif";
+    }
 }
 
 function ValidaOpcion(combo) {
     var indice = combo.selectedIndex;
-    if(combo.options[indice].value==1){
-        document.getElementById('VBat').innerHTML = 5;
+    if (combo.options[indice].value == 1) {
+        setInterval('restar()', 1000);
     }
-} 
+}
+
+function restar() {
+    aux = parseFloat(document.getElementById('VBat').innerHTML) - 1;
+
+    if (aux == VBatMB/2) {
+        stopInterval();            
+    }
+    else {
+        document.getElementById('VBat').innerHTML = aux;
+    }
+
+    cambiarImagen();
+}
+
