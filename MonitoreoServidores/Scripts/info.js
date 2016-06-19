@@ -14,6 +14,7 @@ var maxVBatMB;
 var maxZBatMB;
 var maxZPATMB;
 var aux;
+var aux1;
 
 function inicializarEncabezado(codigo) {
     if (codigo == 1) {
@@ -96,14 +97,20 @@ function ValidaOpcion(combo) {
     if (combo.options[indice].value == 1) {
         setInterval('restar()', 1000);
     }
+    if (combo.options[indice].value == 2) {
+        setInterval('restar1()', 1000);
+    }
 }
 
 function restar() {
     aux = parseFloat(document.getElementById('VBat').innerHTML) - 1;
+    
 
     if (aux == VBatMB/2) {
         stopInterval();            
     }
+
+  
     else {
         document.getElementById('VBat').innerHTML = aux;
     }
@@ -111,3 +118,17 @@ function restar() {
     cambiarImagen();
 }
 
+function restar1() {
+    aux1 = parseFloat(document.getElementById('VBat').innerHTML) - 0.1;
+
+    if (aux1 == VBatMB / 2) {
+        stopInterval();
+    }
+    else {
+        document.getElementById('VBat').innerHTML = aux1;
+        document.getElementById('VBat').innerHTML = aux1.toFixed(2);
+    }
+
+    cambiarImagen();
+
+}
