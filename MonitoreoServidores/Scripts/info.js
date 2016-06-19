@@ -78,3 +78,10 @@ function cambiarImagen() {
         document.getElementById('HZBatAl').src = "images/NO.gif";
     }
 }
+
+function ValidaOpcion(combo) {
+    var indice = combo.selectedIndex;
+    if(combo.options[indice].value==1){
+        document.getElementById('VBat').innerHTML = 5;
+    }
+} 
