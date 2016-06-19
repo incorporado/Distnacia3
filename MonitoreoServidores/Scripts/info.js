@@ -5,10 +5,10 @@ var MarcaMB = "Elvison";
 var OrdendeCompraMB = "12600002";
 var NumeroSerieMB = "120002";
 var TipoMB = "Vertical";
-var VBatMB = 30;
-var ZBatMB = 40;
-var ZPATMB = 50;
-var TCAFMB = 60;
+var VBatMB = 10;
+var ZBatMB = 20;
+var ZPATMB = 30;
+var TCAFMB = 40;
 var stop;
 var maxVBatMB;  
 var maxZBatMB;
@@ -42,11 +42,9 @@ $(document).ready(function () {
     
 });
 
-function stopInterval() {
-    
+function stopInterval() {    
     if ((parseFloat(document.getElementById("VBat").innerHTML) > maxVBatMB) || (parseFloat(document.getElementById("ZBat").innerHTML) > maxZBatMB) || (parseFloat(document.getElementById("ZPAT").innerHTML) > maxZPATMB)) {
-        clearInterval(stop);
-        console.log("hola1");
+        clearInterval(stop);        
     }
 }
 
@@ -62,6 +60,21 @@ function loop() {
     x = parseFloat(parseFloat(document.getElementById("ZPAT").innerHTML) + 0.01);
     document.getElementById("ZPAT").innerHTML = x.toFixed(2);
 
-    console.log("hola2");
     stopInterval();
+
+    cambiarImagen();
+}
+
+function cambiarImagen() {
+    if (parseFloat(document.getElementById("VBat").innerHTML) > VBatMB) {
+        document.getElementById('PPATAl').src = "images/NO.gif";
+    }
+
+    if (parseFloat(document.getElementById("ZBat").innerHTML) > ZBatMB) {
+        document.getElementById('NPATAl').src = "images/NO.gif";
+    }
+
+    if (parseFloat(document.getElementById("ZPAT").innerHTML) > ZPATMB) {
+        document.getElementById('HZBatAl').src = "images/NO.gif";
+    }
 }
