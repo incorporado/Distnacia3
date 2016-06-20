@@ -78,7 +78,8 @@ function cambiarImagen() {
     }
     else {
         document.getElementById('opciones').disabled = false;
-        if (document.getElementById('opciones').value == 2) {
+        var textoOpcionElegida = (document.getElementById('opciones').options[document.getElementById('opciones').selectedIndex].innerHTML).indexOf("RKM49");
+        if (textoOpcionElegida > 0) {
             $('#ruedaopcion2').show();
             reordenarListaVBat();
             setTimeout('ocultarRuedaOpcion2()', 2000);
