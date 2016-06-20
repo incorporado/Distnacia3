@@ -42,7 +42,7 @@ $(document).ready(function () {
     maxZBatMB = ZBatMB * 1.3;
     maxZPATMB = ZPATMB * 1.3;
     var i = 0;
-    //ocultarRuedaOpcion2();
+    ocultarRuedaOpcion2();
     stop = setInterval('loop()', 1000);
     
 });
@@ -81,7 +81,7 @@ function cambiarImagen() {
         if (document.getElementById('opciones').value == 2) {
             $('#ruedaopcion2').show();
             reordenarListaVBat();
-            setTimeout(ocultarRuedaOpcion2(), 2000);
+            setTimeout('ocultarRuedaOpcion2()', 2000);
         }
         document.getElementById('PPATAl').src = "images/SI.gif";
     }
@@ -142,7 +142,7 @@ function restar1() {
 }
 
 function ocultarRuedaOpcion2() {
-    document.getElementById("ruedaopcion2").hide();
+    $("#ruedaopcion2").hide();
 }
 
 function reordenarListaVBat() {
