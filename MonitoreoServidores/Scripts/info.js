@@ -15,8 +15,10 @@ var maxZBatMB;
 var maxZPATMB;
 var aux;
 var aux1;
+var aux2;
 var parar1;
 var parar2;
+var parar3;
 
 function inicializarEncabezado(codigo) {
     if (codigo == 1) {
@@ -106,18 +108,26 @@ function cambiarImagen() {
 
 function ValidaOpcion(combo) {
     var indice = combo.selectedIndex;
-    if (combo.options[indice].value == 1) {
-        document.getElementById('opciones').disabled = true;
-        parar1 = setInterval('restar()', 1000);
-    }
-    if (combo.options[indice].value == 2) {
-        document.getElementById('opciones').disabled = true;
-        parar2 = setInterval('restar1()', 1000);        
+    if ((parseFloat(document.getElementById("ZBat").innerHTML) > ZBatMB) ||
+       (parseFloat(document.getElementById("ZPAT").innerHTML) > ZPATMB) ||
+       (parseFloat(document.getElementById("VBat").innerHTML) > VBatMB)) {
+        if (combo.options[indice].value == 1) {
+            document.getElementById('opciones').disabled = true;
+            parar1 = setInterval('restar()', 1000);
+        }
+        if (combo.options[indice].value == 2) {
+            document.getElementById('opciones').disabled = true;
+            parar2 = setInterval('restar1()', 1000);
+        }
+        if (combo.options[indice].value == 3) {
+            document.getElementById('opciones').disabled = true;
+            parar3 = setInterval('restar2()', 1000);
+        }
     }
 }
 
 function restar() {
-    aux = parseFloat(document.getElementById('VBat').innerHTML) - 0.1;    
+    aux = parseFloat(document.getElementById('VBat').innerHTML) - 0.5;    
 
     if (aux == VBatMB/2) {
         clearInterval(parar1);
@@ -141,6 +151,20 @@ function restar1() {
 
     cambiarImagen();
 }
+
+function restar2() {
+    aux2 = parseFloat(document.getElementById('VBat').innerHTML) - 0.1;
+
+    if (aux2 == VBatMB/2) {
+        clearInterval(parar3);
+    }
+    else {
+        document.getElementById('VBat').innerHTML = aux2.toFixed(2);
+    }
+
+    cambiarImagen();
+}
+
 
 function ocultarRuedaOpcion2() {
     $("#ruedaopcion2").hide();
