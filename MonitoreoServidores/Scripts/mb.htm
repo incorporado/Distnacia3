@@ -266,7 +266,9 @@ border-color: windowtext;
                                     <td style="font-size: 12.0pt; width: 50px; text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">
                                         <span lang="es-ar">V<span>alor</span></span>
                                     </td>
-                                    <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Ref. </td>
+                                    <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Advertencia</td>
+                                    <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Alerta</td>                                    
+                                    <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Maximo</td>
                                     <td style="font-size: 12.0pt;width: 10px; text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Unidad. </td>
                                 </tr>
 
@@ -284,7 +286,17 @@ border-color: windowtext;
                                     </td>
                                     <td class="style168">
                                         <script type="text/javascript">
+                                            document.write(minVBatMB);
+                                        </script>
+                                    </td>
+                                    <td class="style168">
+                                        <script type="text/javascript">
                                             document.write(VBatMB);
+                                        </script>
+                                    </td>                                   
+                                    <td class="style168">
+                                        <script type="text/javascript">
+                                            document.write(maxVBatMB);
                                         </script>
                                     </td>
                                     <td class="style174">C°</td>
@@ -302,7 +314,19 @@ border-color: windowtext;
                                     <td class="style168">
                                         <!--div id="cnfVCons" class="cnfVCons">---</div-->
                                         <script type="text/javascript">
+                                            document.write(minZBatMB);
+                                        </script>
+                                    </td>
+                                    <td class="style168">
+                                        <!--div id="cnfVCons" class="cnfVCons">---</div-->
+                                        <script type="text/javascript">
                                             document.write(ZBatMB);
+                                        </script>
+                                    </td>                                    
+                                    <td class="style168">
+                                        <!--div id="cnfVCons" class="cnfVCons">---</div-->
+                                        <script type="text/javascript">
+                                            document.write(maxZBatMB);
                                         </script>
                                     </td>
                                     <td class="style174">C°</td>
@@ -320,7 +344,19 @@ border-color: windowtext;
                                     <td class="style168">
                                         <!--div id="cnfITotal" class="cnfITotal">---</div-->
                                         <script type="text/javascript">
+                                            document.write(minZPATMB);
+                                        </script>
+                                    </td>
+                                    <td class="style168">
+                                        <!--div id="cnfITotal" class="cnfITotal">---</div-->
+                                        <script type="text/javascript">
                                             document.write(ZPATMB);
+                                        </script>
+                                    </td>                                    
+                                    <td class="style168">
+                                        <!--div id="cnfITotal" class="cnfITotal">---</div-->
+                                        <script type="text/javascript">
+                                            document.write(maxZPATMB);
                                         </script>
                                     </td>
                                     <td class="style174">C°</td>
@@ -372,7 +408,7 @@ border-color: windowtext;
                                     </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura de aceite</td>
                                     <td width="81" bordercolor="#C7C7C7">
-                                        <select  name="opciones" id="opciones" onchange="ValidaOpcion(this)">
+                                        <select name="opciones" id="opciones" onchange="ValidaOpcion(this)">
                                             <option value="0">Opciones para reponer alarma</option>
                                             <option value="1">Encender Ventilador LKP93</option>
                                             <option value="2">Encender Ventilador RKM49</option>
@@ -391,7 +427,7 @@ border-color: windowtext;
                                     </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura ambiente</td>
                                     <td width="81" bordercolor="#C7C7C7">
-                                        <select>
+                                        <select name="opcionesAdvertencia" id="opcionesAdvertencia" onchange="ValidaOpcionAdvertencia(this)">
                                             <option value="0">Opciones para reponer alarma</option>
                                             <option value="1">Encender Ventilador LKP93</option>
                                             <option value="2">Encender Ventilador RKM49</option>

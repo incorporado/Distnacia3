@@ -8,7 +8,6 @@ var TipoMB = "Vertical";
 var VBatMB = 10;
 var ZBatMB = 20;
 var ZPATMB = 30;
-var TCAFMB = 40;
 var stop;
 var maxVBatMB = VBatMB * 1.3;
 var maxZBatMB = ZBatMB * 1.3;
@@ -19,9 +18,15 @@ var minZPATMB = ZPATMB * 0.7;
 var aux;
 var aux1;
 var aux2;
+var aux3;
+var aux4;
+var aux5;
 var parar1;
 var parar2;
 var parar3;
+var parar4;
+var parar5;
+var parar6;
 
 
 function inicializarEncabezado(codigo) {
@@ -48,11 +53,6 @@ $(document).ready(function () {
     stop = setInterval('loop()', 1000);
     
 });
-
-//0-6 nada
-//7-10 advertencia
-//10 ref
-//11-14 maximo fisico
 
 
 function stopInterval() {    
@@ -105,15 +105,17 @@ function cambiarImagen() {
 
 
     if (parseFloat(document.getElementById("ZBat").innerHTML) > ZBatMB) {
-        document.getElementById('NPATAl').src = "images/NO.gif";
+        document.getElementById('NPATAl').src = "images/NO.gif";        
+        document.getElementById("opcionesAdvertencia").disabled = false;
     }
     else if ((parseFloat(document.getElementById("ZBat").innerHTML) > minZBatMB) &&
-    (parseFloat(document.getElementById("ZBat").innerHTML) <= ZBatMB)) {
+    (parseFloat(document.getElementById("ZBat").innerHTML) <= ZBatMB)) {        
         document.getElementById('NPATAl').src = "images/undefined.jpg";
+        document.getElementById("opcionesAdvertencia").disabled = false;
     }
-    else {
-        document.getElementById("opciones").disable = false;
+    else {        
         document.getElementById('NPATAl').src = "images/SI.gif";
+        document.getElementById("opcionesAdvertencia").disabled = false;
     }
 
 
@@ -156,7 +158,7 @@ function ValidaOpcion(combo) {
 function restar() {
     aux = parseFloat(document.getElementById('VBat').innerHTML) - 0.5;    
 
-    if (aux == VBatMB/2) {
+    if (aux <= VBatMB/2) {
         clearInterval(parar1);
     }  
     else {
@@ -170,7 +172,7 @@ function restar() {
 function restar1() {
     aux1 = parseFloat(document.getElementById('VBat').innerHTML) - 1;
 
-    if (aux1 == VBatMB/2) {
+    if (aux1 <= VBatMB/2) {
         clearInterval(parar2);        
     }
     else {        
@@ -184,7 +186,7 @@ function restar1() {
 function restar2() {
     aux2 = parseFloat(document.getElementById('VBat').innerHTML) - 0.1;
 
-    if (aux2 == VBatMB/2) {
+    if (aux2 <= VBatMB/2) {
         clearInterval(parar3);
     }
     else {
@@ -193,6 +195,70 @@ function restar2() {
 
     cambiarImagen();
 }
+
+//************************************************************************
+function ValidaOpcionAdvertencia(combo) {
+    var indice = combo.selectedIndex;
+    if ( ( (parseFloat(document.getElementById("ZBat").innerHTML) > minZBatMB) && (parseFloat(document.getElementById("ZBat").innerHTML) <= ZBatMB) ) ||
+       ((parseFloat(document.getElementById("ZPAT").innerHTML) > minZPATMB) && (parseFloat(document.getElementById("ZPAT").innerHTML) <= ZPATMB)) ||
+       ((parseFloat(document.getElementById("VBat").innerHTML) > minVBatMB) && (parseFloat(document.getElementById("VBat").innerHTML) <= VBatMB))) {
+        if (combo.options[indice].value == 1) {
+            document.getElementById('opcionesAdvertencia').disabled = true;
+            parar4 = setInterval('restar3()', 1000);
+        }
+        if (combo.options[indice].value == 2) {
+            document.getElementById('opcionesAdvertencia').disabled = true;
+            parar5 = setInterval('restar4()', 1000);
+        }
+        if (combo.options[indice].value == 3) {
+            document.getElementById('opcionesAdvertencia').disabled = true;
+            parar6 = setInterval('restar5()', 1000);
+        }
+    }
+}
+
+
+function restar3() {
+    aux3 = parseFloat(document.getElementById('ZBat').innerHTML) - 0.5;
+
+    if (aux3 <= ZBatMB / 2) {
+        clearInterval(parar4);
+    }
+    else {
+        document.getElementById('ZBat').innerHTML = aux3.toFixed(2);
+    }
+
+    cambiarImagen();
+}
+
+
+function restar4() {
+    aux4 = parseFloat(document.getElementById('ZBat').innerHTML) - 1;
+
+    if (aux4 <= ZBatMB / 2) {
+        clearInterval(parar5);
+    }
+    else {
+        document.getElementById('ZBat').innerHTML = aux4.toFixed(2);
+    }
+
+    cambiarImagen();
+}
+
+
+function restar5() {
+    aux5 = parseFloat(document.getElementById('ZBat').innerHTML) - 0.1;
+
+    if (aux5 <= ZBatMB / 2) {
+        clearInterval(parar6);
+    }
+    else {
+        document.getElementById('ZBat').innerHTML = aux5.toFixed(2);
+    }
+
+    cambiarImagen();
+}
+//************************************************************************
 
 
 function ocultarRuedaOpcion2() {
@@ -206,3 +272,12 @@ function reordenarListaVBat() {
     document.getElementById('opciones').options[2].innerHTML = textoTemporal;
     document.getElementById('opciones').selectedIndex = 0;
 }
+
+
+function getMB04Reg() {
+    document.getElementById("tbodyReg").innerHTML = "hola";
+}
+
+function popLayer(id) { }
+
+function hideLayer() { }
