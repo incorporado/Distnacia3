@@ -512,24 +512,23 @@ border-color: windowtext;
                                         <!--------------------------------------------->
                                         <!--     nueva div y tabla para reg	         -->
                                         <!--------------------------------------------->
-                                        <div class="miTablaReg" style="height: 50px; width:603px; visibility:hidden" id="capaReg">
-                                            <table cellpadding=0 cellspacing=0 width=586 id="tablaReg" class="style2TR">
-                                                <thead>
-                                                    <tr style="border: 1px solid #999999; background-color: #E8E8E8">
-                                                        <th class="headerCel" width="10%">Nro</th>
-                                                        <th class="headerCel" width="24%">Fecha</th>
-                                                        <th class="headerCel" width="41%">Registro</th>
-                                                        <th class="headerCel" width="25%">Estado</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id='tbodyReg'>
-                                                    <!-- Acá va el contenido!!!-->
-                                                </tbody>
+                                        <div id="POItablediv">
+                                            <table id="POITable" border="1">
+                                                <tr>
+                                                    <td>Fecha</td>
+                                                    <td>Alarma</td>
+                                                    <td>Valor</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                   
+                                                    <td><input size=25 type="text" id="latbox" readonly=true /></td>
+                                                    <td><input size=35 type="text" id="latbox" readonly=true /></td>
+                                                    <td><input size=35 type="text" id="lngbox" readonly=true /></td>
+                         
+                                                </tr>
                                             </table>
                                         </div>
-
-                                    </td>
-                                </tr>
                             </table>
                             <br>
                             <table>

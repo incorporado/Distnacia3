@@ -275,9 +275,36 @@ function reordenarListaVBat() {
 
 
 function getMB04Reg() {
-    document.getElementById("tbodyReg").innerHTML = "hola";
+    //esto es para la fecha
+    var hoy = new Date();
+    var dd = hoy.getDate();
+    var mm = hoy.getMonth() + 1; //January is 0!
+
+    var yyyy = hoy.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    var hoy = dd + '/' + mm + '/' + yyyy;
+  
+    var x = document.getElementById('POITable').insertRow(1);
+   
+    var c1 = x.insertCell(0);
+    var c2 = x.insertCell(1);
+    var c3 = x.insertCell(2);
+   
+    // c1.innerHTML = document.getElementById('VBat').innerHTML;
+    c1.innerHTML = hoy;
+    c2.innerHTML = "Temperatura de aceite de la cuba";
+    c3.innerHTML = document.getElementById('VBat').innerHTML;
+   // c2.innerHTML = "Temperatura de aceite de la cuba";
 }
 
-function popLayer(id) { }
 
-function hideLayer() { }
+
+
+    function popLayer(id) { }
+
+    function hideLayer() { }
