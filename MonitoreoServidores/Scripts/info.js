@@ -278,7 +278,7 @@ function getMB04Reg() {
     //esto es para la fecha
     var hoy = new Date();
     var dd = hoy.getDate();
-    var mm = hoy.getMonth() + 1; //January is 0!
+    var mm = hoy.getMonth() + 1; 
 
     var yyyy = hoy.getFullYear();
     if (dd < 10) {
@@ -290,19 +290,29 @@ function getMB04Reg() {
     var hoy = dd + '/' + mm + '/' + yyyy;
   
     var x = document.getElementById('POITable').insertRow(1);
-   
+    var y = document.getElementById('POITable').insertRow(2);
+    var z = document.getElementById('POITable').insertRow(3);
+
     var c1 = x.insertCell(0);
     var c2 = x.insertCell(1);
     var c3 = x.insertCell(2);
-   
-    // c1.innerHTML = document.getElementById('VBat').innerHTML;
+    var c4 = y.insertCell(0);
+    var c5 = y.insertCell(1);
+    var c6 = y.insertCell(2);
+    var c7 = z.insertCell(0);
+    var c8 = z.insertCell(1);
+    var c9 = z.insertCell(2);
+  
     c1.innerHTML = hoy;
     c2.innerHTML = "Temperatura de aceite de la cuba";
     c3.innerHTML = document.getElementById('VBat').innerHTML;
-   // c2.innerHTML = "Temperatura de aceite de la cuba";
+    c4.innerHTML = hoy;
+    c5.innerHTML = "Temperatura Ambiente";
+    c6.innerHTML = document.getElementById('ZBat').innerHTML;
+    c7.innerHTML = hoy;
+    c8.innerHTML = "Temperatura refrigerante";
+    c9.innerHTML = document.getElementById('ZPAT').innerHTML;
 }
-
-
 
 
     function popLayer(id) { }
