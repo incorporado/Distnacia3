@@ -29,6 +29,16 @@ var parar5;
 var parar6;
 
 
+$(document).ready(function () {
+    document.getElementById("VBat").innerHTML = 0;
+    document.getElementById("ZBat").innerHTML = 0;
+    document.getElementById("ZPAT").innerHTML = 0;
+    ocultarRuedaOpcion2();
+    stop = setInterval('loop()', 1000);
+
+});
+
+
 function inicializarEncabezado(codigo) {
     if (codigo == 1) {
         Subestacion = "Subestacion CABA Sur";
@@ -45,28 +55,14 @@ function inicializarEncabezado(codigo) {
 };
 
 
-$(document).ready(function () {
-    document.getElementById("VBat").innerHTML = 0;
-    document.getElementById("ZBat").innerHTML = 0;
-    document.getElementById("ZPAT").innerHTML = 0;
-    ocultarRuedaOpcion2();
-    stop = setInterval('loop()', 1000);
-    
-});
-
-
 function stopInterval() {    
-    if ((parseFloat(document.getElementById("VBat").innerHTML) > maxVBatMB) || (parseFloat(document.getElementById("ZBat").innerHTML) > maxZBatMB) || (parseFloat(document.getElementById("ZPAT").innerHTML) > maxZPATMB)) {
+    if ((parseFloat(document.getElementById("VBat").innerHTML) >= maxVBatMB) || (parseFloat(document.getElementById("ZBat").innerHTML) >= maxZBatMB) || (parseFloat(document.getElementById("ZPAT").innerHTML) >= maxZPATMB)) {
         clearInterval(stop);        
     }
 }
 
 
-function cheqInitState() { }
-
-
 function loop() {
-
     document.getElementById("VBat").innerHTML = parseFloat(parseFloat(document.getElementById("VBat").innerHTML) + 1);
 
     var x = parseFloat(parseFloat(document.getElementById("ZBat").innerHTML) + 1.3);
@@ -86,12 +82,9 @@ function loop() {
 function cambiarImagen() {
     if (parseFloat(document.getElementById("VBat").innerHTML) > VBatMB) {
         document.getElementById('PPATAl').src = "images/NO.gif";
+        $("#ImgAlerta").show();
     }
-    else if ((parseFloat(document.getElementById("VBat").innerHTML) > minVBatMB) &&
-        (parseFloat(document.getElementById("VBat").innerHTML) <= VBatMB)) {
-        document.getElementById('PPATAl').src = "images/undefined.jpg";
-    }
-    else {
+    else if (parseFloat(document.getElementById("VBat").innerHTML) <= VBatMB) {
         document.getElementById('opciones').disabled = false;
         var textoOpcionElegida = (document.getElementById('opciones').options[document.getElementById('opciones').selectedIndex].innerHTML).indexOf("RKM49");
         if (textoOpcionElegida > 0) {
@@ -99,6 +92,7 @@ function cambiarImagen() {
             reordenarListaVBat();
             setTimeout('ocultarRuedaOpcion2()', 2000);
         }
+        $("#ImgAlerta").hide();
         document.getElementById('PPATAl').src = "images/SI.gif";
     }
 
@@ -107,15 +101,18 @@ function cambiarImagen() {
     if (parseFloat(document.getElementById("ZBat").innerHTML) > ZBatMB) {
         document.getElementById('NPATAl').src = "images/NO.gif";        
         document.getElementById("opcionesAdvertencia").disabled = false;
+        $("#ImgAdvertencia").hide();
     }
     else if ((parseFloat(document.getElementById("ZBat").innerHTML) > minZBatMB) &&
-    (parseFloat(document.getElementById("ZBat").innerHTML) <= ZBatMB)) {        
+        (parseFloat(document.getElementById("ZBat").innerHTML) <= ZBatMB)) {        
         document.getElementById('NPATAl').src = "images/undefined.jpg";
         document.getElementById("opcionesAdvertencia").disabled = false;
+        $("#ImgAdvertencia").show();
     }
     else {        
         document.getElementById('NPATAl').src = "images/SI.gif";
         document.getElementById("opcionesAdvertencia").disabled = false;
+        $("#ImgAdvertencia").hide();
     }
 
 
@@ -263,6 +260,8 @@ function restar5() {
 
 function ocultarRuedaOpcion2() {
     $("#ruedaopcion2").hide();
+    $("#ImgAlerta").hide();
+    $("#ImgAdvertencia").hide();   
 }
 
 
@@ -315,6 +314,7 @@ function getMB04Reg() {
 }
 
 
-    function popLayer(id) { }
-
-    function hideLayer() { }
+function popLayer(id) { }
+function hideLayer() { }
+function copyRegText() { }
+function cheqInitState() { }

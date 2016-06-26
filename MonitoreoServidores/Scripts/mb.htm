@@ -1,29 +1,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<!--<link href="images/newLogico.ico" type="image/x-icon" rel="shortcut icon" />
-<link rel="StyleSheet" href="css/cv.css" type="text/css">-->
 <title>Equipo Medidor 1</title>
-<!--<script language="javascript" src="scripts/PopUp_AjaxSuite.js"></script>--> 
-<!--<script language="javascript" src="scripts/MBFunctions_AjaxSuite.js"></script>-->
-<!--<script src="./lib/jquery.js" type="text/javascript"></script>-->
-<!--<script type="text/javascript" src="lib/jquery-ui-1.8.2.custom.min.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="info.js"></script>
-<!--<script language="javascript" src="scripts/MBList_AjaxSuite.js"></script>-->
 <script language="javascript">
-//Nombre del equipo (obtenido desde la url)
 var cadenaTemp  = location.search.substring(1,location.search.length).split("=");
-//para engañar el estomago...
-//var jsvCVName = '';
-//Nombre real!
-//var jsvMBName = getRealMBName( cadenaTemp[1] );
 var jsvMBName = cadenaTemp[1];
-//Indice del servidor web
-//var jsvWSIndex = getWSIndex(jsvMBName);
-//var jsvDLRegNumber = getDLRegNumber(jsvMBName);
-    //var jsvDLMedNumber = getDLMedNumber(jsvMBName);
-    
 var account = location.search;
 
 //fecha
@@ -148,7 +131,6 @@ padding: 0px;
 {
 height: 15.0pt;
 width: 184px;
-
 font-size: 12.0pt;
 text-align: center;
 color: windowtext;
@@ -177,7 +159,6 @@ border-color: windowtext;
 </head>
 
 <body class="todo" onload="cheqInitState()" bgcolor="#FFFFFF" style="text-align:center">
-    <!--<style type="text/css" title="currentStyle"> @import "estilos/monitoreo_interruptores.css"; </style>-->
     <script language="javascript">
         var dias = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
         var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
@@ -192,13 +173,10 @@ border-color: windowtext;
         var hora, minuto;
         hora = d.getHours();
         minuto = d.getMinutes();
-        //	str_hora = new String(hora);
         if (hora <= 9)
             hora = "0" + hora;
-        //	str_minuto = new String(minuto);
         if (minuto <= 9)
             minuto = "0" + minuto;
-
         document.write((dias[d.getDay()] + ", " + dia + " de " + meses[d.getMonth()] + " del Año " + d.getFullYear() + ", " + hora + ":" + minuto));
     </script>
     <div id="main">
@@ -245,7 +223,6 @@ border-color: windowtext;
             <!--    RepAuto              -->
             <!----------------------------->
             <script type="text/javascript">
-                //addToMasterList(new DP("NVL","NVL_mbRepAutoSt_"+jsvWSIndex, "RASR"), dpMtrList.index++); //0
             </script>
             <!----------------------------->
             <!--     DivCenter	         -->
@@ -256,37 +233,22 @@ border-color: windowtext;
                         <!----------------------------->
                         <!--    MEDICIONES           -->
                         <!----------------------------->
-                        <!--div style="position: absolute; left: 22px; top: 45px; width: 629px; height: 172px; z-index: 6" id="Med"-->
                         <div id="Med" align="center" style="margin-top:4%; margin-bottom:4%">
-                            <!--table width="600" class="styleNoC"-->
                             <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;" id="table17">
                                 <tr style="height:18pt">
                                     <td style="text-align:center; height:21; width:106; font-size: 12.0pt; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-left: 1.5pt solid #0066CC; border-right: .5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background-color: #808080; border-color: #000000;">Descripción</td>
-                                    <!--td style="font-size: 12.0pt; width: 77; text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #FFFFFF; border-left-width: medium; border-top-color: #000099; border-right-color: #000099; border-bottom-color: #000099;">Valor</td-->
                                     <td style="font-size: 12.0pt; width: 50px; text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">
                                         <span lang="es-ar">V<span>alor</span></span>
                                     </td>
-                                    <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Advertencia</td>
                                     <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Alerta</td>                                    
                                     <td style="font-size: 12.0pt;text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Maximo</td>
                                     <td style="font-size: 12.0pt;width: 10px; text-align: center; color: windowtext; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; vertical-align: bottom; white-space: nowrap; border-right: 1.5pt solid #0066CC; border-top: 1.5pt solid #0066CC; border-bottom: .5pt solid #0066CC; padding: 0px; background: #99CCFF; border-left-width: medium;">Unidad. </td>
                                 </tr>
-
-                                <tr style="height:20.0pt">
-                                    <td colspan="4" class="style175"></td>
-                                </tr>
                                 <tr style="height:20.0pt">
                                     <td class="style165">Temperatura de aceite de la cuba:</td>
-                                    <!--img id="ImgEst_GuardMot"  class="Imagen" src="imagenes/NO_DISP.gif"  width="14" ></td-->
                                     <td class="style169">
                                         <div id="VBat">----</div>
                                         <script type="text/javascript">
-                                            //addToMasterList(new DP("NVL","NVL_mbVBat_" + jsvWSIndex, "VBat"), dpMtrList.index++);
-                                        </script>
-                                    </td>
-                                    <td class="style168">
-                                        <script type="text/javascript">
-                                            document.write(minVBatMB);
                                         </script>
                                     </td>
                                     <td class="style168">
@@ -304,27 +266,17 @@ border-color: windowtext;
 
                                 <tr style="height:20.0pt">
                                     <td class="style165">Temperatura ambiente:</td>
-                                    <!--img id="Alms18" class="Imagen" src="imagenes/NO_DISP.gif" align="center" width="14" ></td-->
                                     <td class="style169">
                                         <div id="ZBat">----</div>
                                         <script type="text/javascript">
-                                            //addToMasterList(new DP("NVL","NVL_mbZBat_" + jsvWSIndex, "ZBat"), dpMtrList.index++);
                                         </script>
                                     </td>
                                     <td class="style168">
-                                        <!--div id="cnfVCons" class="cnfVCons">---</div-->
-                                        <script type="text/javascript">
-                                            document.write(minZBatMB);
-                                        </script>
-                                    </td>
-                                    <td class="style168">
-                                        <!--div id="cnfVCons" class="cnfVCons">---</div-->
                                         <script type="text/javascript">
                                             document.write(ZBatMB);
                                         </script>
                                     </td>                                    
                                     <td class="style168">
-                                        <!--div id="cnfVCons" class="cnfVCons">---</div-->
                                         <script type="text/javascript">
                                             document.write(maxZBatMB);
                                         </script>
@@ -334,66 +286,30 @@ border-color: windowtext;
 
                                 <tr style="height:20.0pt">
                                     <td height="20" class="style165">Temperatura refrigerante:</td>
-                                    <!--img id="Alms7" class="Imagen" src="imagenes/NO_DISP.gif" align="center" width="14"></td-->
                                     <td class="style169">
                                         <div id="ZPAT"> ----</div>
                                         <script type="text/javascript">
-                                            //addToMasterList(new DP("NVL","NVL_mbZPAT_" + jsvWSIndex, "ZPAT"), dpMtrList.index++);
                                         </script>
                                     </td>
                                     <td class="style168">
-                                        <!--div id="cnfITotal" class="cnfITotal">---</div-->
-                                        <script type="text/javascript">
-                                            document.write(minZPATMB);
-                                        </script>
-                                    </td>
-                                    <td class="style168">
-                                        <!--div id="cnfITotal" class="cnfITotal">---</div-->
                                         <script type="text/javascript">
                                             document.write(ZPATMB);
                                         </script>
                                     </td>                                    
                                     <td class="style168">
-                                        <!--div id="cnfITotal" class="cnfITotal">---</div-->
                                         <script type="text/javascript">
                                             document.write(maxZPATMB);
                                         </script>
                                     </td>
                                     <td class="style174">C°</td>
                                 </tr>
-                                <!--<tr><td><a name="aREG0"><input type="button" value="Ver reporte anual" onclick="showGetLog()"></a></td></tr>-->
-                                <!--
-                                <tr  style="height:40.0pt">
-
-                                 <td height="20" class="style165">Tiempo carga a fondo:</td>
-                                <!--img id="Alms7" class="Imagen" src="imagenes/NO_DISP.gif" align="center" width="14"></td-->
-                                <!--      <td class="style169">
-                                     <div id="TCAF"> ----</div>
-                                       <script type="text/javascript">
-                                        //addToMasterList(new DP("NVL","NVL_mbTCAF_" + jsvWSIndex, "TCAF"), dpMtrList.index++);
-                                       </script>
-                                   </td>
-                                   <td class="style168">
-
-                                  <!--div id="cnfTCaf" class="cnfTCaf">---</div-->
-                                <!--  	<script type="text/javascript">
-                                       document.write(TCAFMB);
-                                    </script>
-                                  </td>
-                                 <td class="style174">hh:mm:ss</td>
-                                    <!--input type="button" id="botonPFF" value="Fondo/Flote" onclick="pulsFFReq('100.0 1')"-->
-                                <!--   </tr>
-                                             -->
-
                             </table>
                         </div>
-
                         <!----------------------------->
                         <!--    ALARMAS              -->
                         <!----------------------------->
                         <div id="Alarm" align="center">
                             <table border="1" width="347" id="tableAlarm" style="border-collapse: collapse;" class="styleNoC">
-                                <!-- MSTableType="nolayout" -->
                                 <tr>
                                     <td align="left" bordercolor="#C7C7C7" bgcolor="#E8E8E8" colspan="3" height="30">
                                         &nbsp;ALARMAS
@@ -403,7 +319,6 @@ border-color: windowtext;
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="PPATAl" src="images/SI.gif" width="14">
                                         <script type='text/javascript'>
-                                        //addToMasterList(new DP("NVL","NVL_mbPPATAlarm_" + jsvWSIndex, "PPATAl"), dpMtrList.index++);
                                         </script>
                                     </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura de aceite</td>
@@ -417,12 +332,14 @@ border-color: windowtext;
                                         </select>
                                         <img id="ruedaopcion2" src="images/loadingwheel.gif" width="20px" height="20px" />
                                     </td>
+                                    <td style="border-color: white;border-bottom-style: hidden;border-right: hidden">
+                                        <img id="ImgAlerta" src="images/alerta.png" width="20px" height="20px">                                     
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="NPATAl" src="images/SI.gif" width="14">
                                         <script type='text/javascript'>
-                                        //addToMasterList(new DP("NVL","NVL_mbNPATAlarm_" + jsvWSIndex, "NPATAl"), dpMtrList.index++);
                                         </script>
                                     </td>                                    
                                     <td width="229" bordercolor="#C7C7C7">Temperatura ambiente</td>
@@ -435,12 +352,14 @@ border-color: windowtext;
                                             <option value="4">Ignorar</option>
                                         </select>
                                     </td>
+                                    <td style="border-color: white;border-bottom-style: hidden;border-right: hidden">
+                                        <img id="ImgAdvertencia" src="images/advertencia.png" width="20px" height="20px" />
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
                                         <img id="HZBatAl" src="images/SI.gif" width="14">
                                         <script type='text/javascript'>
-                                        //addToMasterList(new DP("NVL","NVL_mbHZBatAlarm_" + jsvWSIndex, "HZBatAl"), dpMtrList.index++);
                                         </script>
                                     </td>
                                     <td width="229" bordercolor="#C7C7C7">Temperatura refrigerante</td>
@@ -454,37 +373,6 @@ border-color: windowtext;
                                         </select>
                                     </td>
                                 </tr>
-                                <!--
-                                <tr>
-                                    <td align="center" height="30" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
-                                    <img id="HVAl" src="images/NO.gif" width="14"></td>
-                                    <script type='text/javascript'>
-                                        //addToMasterList(new DP("NVL","NVL_mbHVAlarm_" + jsvWSIndex, "HVAl"), dpMtrList.index++);
-                                    </script>
-                                    <td width="229" bordercolor="#C7C7C7">Alta Tensión Batería</td>
-                                    <td width="81" bordercolor="#C7C7C7">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" height="30" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
-                                    <img id="LVAl" src="images/NO.gif" width="14"></td>
-                                    <script type='text/javascript'>
-                                        //addToMavsterList(new DP("NVL","NVL_mbLVAlarm_" + jsvWSIndex, "LVAl"), dpMtrList.index++);
-                                    </script>
-                                    <td width="229" bordercolor="#C7C7C7">Baja Tensión Batería</td>
-                                    <td width="81" bordercolor="#C7C7C7">&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td align="center" bordercolor="#C7C7C7" bgcolor="#E8E8E8">
-                                    <img id="TCAFAl" src="images/NO.gif" width="14"></td>
-                                    <script type='text/javascript'>
-                                        //addToMasterList(new DP("NVL","NVL_mbTCAFAlarm_" + jsvWSIndex, "TCAFAl"), dpMtrList.index++);
-                                    </script>
-                                    <td width="229" bordercolor="#C7C7C7">Tiempo Carga a Fondo
-                                    Superado</td>
-                                    <td width="81" bordercolor="#C7C7C7">
-                                        <input value="Reponer" id="botonTCAF" onclick="alarmRepReqProc('botonTCAF')" class="botonHundido" type="button">
-                                    </td>
-                                </tr>-->
                             </table>
                         </div>
                         <!----------------------------->
@@ -499,7 +387,6 @@ border-color: windowtext;
                                             <a name="aREG">
                                                 <input type="button" value="Ver Reporte Anual" onclick="getMB04Reg()" onmouseover="popLayer(1)" onmouseout="hideLayer()">&nbsp;
                                                 <input type="button" value="Imprimir pagina" onclick="copyRegText()" onmouseover="popLayer(4)" onmouseout="hideLayer()" id="copyButton">
-                                                <!--input type="button" value="Descargar" onclick="../../../data/log9.csv" onmouseover="popLayer(4)" onmouseout="hideLayer()" id="copyButton"-->
                                             </a>
                                     </td>
                                 </tr>
@@ -508,7 +395,6 @@ border-color: windowtext;
                                 </tr>
                                 <tr>
                                     <td width="604" height="67">
-
                                         <!--------------------------------------------->
                                         <!--     nueva div y tabla para reg	         -->
                                         <!--------------------------------------------->
@@ -521,13 +407,14 @@ border-color: windowtext;
                                                 </tr>                                              
                                             </table>
                                         </div>
-                            </table>
-                         
+                                    </td>
+                                </tr>
+                            </table>                         
                         </div>
                     </div>
-            </div>
-        <!--/div-->
-    <!----/div-->
+                </center>
+            </div>   
+        </div>
+    </div>    
 </body>
-
 </html>
